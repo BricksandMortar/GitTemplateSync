@@ -15,9 +15,13 @@ namespace com.bricksandmortarstudio.GitEmailTemplateSync.Migrations
             Sql( @"
                 CREATE TABLE [dbo].[_com_bricksandmortarstudio_GitEmailTemplateSync_GitFile](
 	                [Id] [int] IDENTITY(1,1) NOT NULL,
-                    [ServiceId] [nvarchar](max) NOT NULL,
+                    [Service] [nvarchar](100),
+                    [ServiceId] [nvarchar](255) NOT NULL,
                     [FilePath] [nvarchar](max) NOT NULL,
                     [Url] [nvarchar](max),
+                    [Repo] [nvarchar](255),
+                    [Organisation] [nvarchar](255),
+                    [Branch] [nvarchar](255),
 	                [Guid] [uniqueidentifier] NOT NULL,
 	                [CreatedDateTime] [datetime] NULL,
 	                [ModifiedDateTime] [datetime] NULL,
@@ -29,7 +33,12 @@ namespace com.bricksandmortarstudio.GitEmailTemplateSync.Migrations
                  CONSTRAINT [PK__com_bricksandmortarstudio_GitEmailTemplateSync_GitFile] PRIMARY KEY CLUSTERED 
                 (
 	                [Id] ASC
-                )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+                )
+				WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY],
+				CONSTRAINT [UQ__com_bricksandmortarstudio_GitEmailTemplateSync_REPO_ORG_BRANCH_SERVICE_ID] UNIQUE NONCLUSTERED
+				(
+					[Service], [ServiceId], [Branch], [Repo], [Organisation]
+				)
                 ) ON [PRIMARY]
 
                 CREATE TABLE [dbo].[_com_bricksandmortarstudio_.GitEmailTemplateSync_GitAttributeMatch](
