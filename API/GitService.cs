@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using com.bricksandmortarstudio.GitEmailTemplateSync.Model;
 
-namespace com.bricksandmortarstudio.GitEmailTemplateSync
+namespace com.bricksandmortarstudio.GitEmailTemplateSync.API
 {
-    public interface GitService
+    public interface IGitService
     {
         IEnumerable<GitFile> UpdateGitFiles();
         
