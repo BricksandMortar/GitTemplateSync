@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Api.cs" />
+    <Compile Include="Migrations\001_InitialMigration.cs" />
     <Compile Include="Model\GitCommunicationTemplateMatch.cs" />
     <Compile Include="Model\GitSystemEmailTemplateMatch.cs" />
     <Compile Include="Model\GitAttributeMatch.cs" />
