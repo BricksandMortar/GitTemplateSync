@@ -57,7 +57,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Api.cs" />
+    <Compile Include="API\Github.cs" />
+    <Compile Include="Data\GitEmailTemplateSyncContext.cs" />
+    <Compile Include="API\GitService.cs" />
+    <Compile Include="Model\GitAttributeMatchService.cs" />
+    <Compile Include="Model\GitCommunicationTemplateMatchService.cs" />
+    <Compile Include="Model\GitFileService.cs" />
+    <Compile Include="Model\GitSystemEmailTemplateMatchService.cs" />
     <Compile Include="Migrations\001_InitialMigration.cs" />
     <Compile Include="Model\GitCommunicationTemplateMatch.cs" />
     <Compile Include="Model\GitSystemEmailTemplateMatch.cs" />
@@ -70,8 +76,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Data\" />
-    <Folder Include="Migrations\" />
+    <Folder Include="DTO\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Rock\Rock\Rock.csproj">
